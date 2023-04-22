@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계산기 프로그램</title>
+  </head>
+  <body>
+    <script>
+      function Num() {
+        num1 = parseInt(prompt('계산할 숫자를 입력하세요'));
+        oper = prompt('사칙연산을 입력하세요');
+        if (!isNaN(oper)) {
+          alert('잘못된 입력입니다.');
+          Num();
+        }
+        num2 = parseInt(prompt('계산할 숫자를 입력하세요'));
+        if (isNaN(num1) || isNaN(num2) || num1 < 0 || num2 <= 0) {
+          alert('잘못된 입력입니다.');
+          Num();
+        }
+      }
+
+      function calcu(oper) {
+        switch (oper) {
+          case '+':
+            return num1 + num2;
+          case '-':
+            return num1 - num2;
+          case '*':
+            return num1 * num2;
+          case '/':
+            return num1 / num2;
+          default: {
+            alert('사칙연산을 다시 입력하세요');
+            Num();
+          }
+        }
+      }
+      Num();
+      calcu(oper);
+      document.write('결과는 :' + calcu(oper));
+    </script>
+  </body>
+</html>
